@@ -10,5 +10,5 @@ vcov.hglm <- function(hglm_out){
 
 #' @export
 print.hglm <- function(hglm_out){
-  cat("Output of hiper_logit.")
+  cat("Output of hiper_glm.")
 }
