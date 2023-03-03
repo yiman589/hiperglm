@@ -1,6 +1,6 @@
 #' @export
 hiper_glm <- function(design, outcome, model = "linear", option = list()){
-  supported_model <- c("linear", "logit")
+  supported_model <- c("linear")
   if(!(model %in% supported_model)){
     stop(sprintf("Model not supported yet."))
   }
@@ -8,8 +8,10 @@ hiper_glm <- function(design, outcome, model = "linear", option = list()){
   if(model == "linear"){
     if(is.null(option$mle_solver)){
       MLE <- linear_mle_pseudo_inv(design, outcome)
-    } else if(option$mle_solver=="BFGS"){
+    } else if(option$mle_solver == "BFGS"){
       MLE <- linear_mle_bfgs(design, outcome)
+    } else {
+      stop(sprintf("Method not supported yet."))
     }
   }
 
